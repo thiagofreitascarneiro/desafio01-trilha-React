@@ -32,14 +32,19 @@ export function TaskList() {
 
   function handleToggleTaskCompletion(id: number) {
     // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
+    const selectTask = tasks.filter((data) => {
+      return data.isComplete 
+    })
   };
 
   function handleRemoveTask(id: number) {
-    tasks.map((data) => {
-      if(data.id === id){
-       setTasks([]) // voce precisa chamar o Hook para renderizar a pagina.  
-      }
-    })  
+    // voce precisa chamar o Hook para renderizar a pagina.
+   const removetask = tasks.filter((data) => {
+      if(data.id != id){
+        return data
+      };
+   });
+   setTasks(removetask)       
   };
 
   return (
